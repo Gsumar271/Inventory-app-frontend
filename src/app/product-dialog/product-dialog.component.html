@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Add New/Edit Product</h1>
+<div mat-dialog-content>
+   <form [formGroup]="productDataForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Product Id</mat-label>
+      <input formControlName="id"  matInput placeholder="id">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input formControlName="name"  matInput placeholder="name">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input formControlName="desc"  matInput placeholder="Description">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Supplier ID</mat-label>
+      <input formControlName="supplierId" matInput type ="number" placeholder="Supplier Id">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Item Price</mat-label>
+      <input formControlName="itemPrice" matInput type ="number" placeholder="Item Price">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sales Price</mat-label>
+      <input formControlName="salesPrice"  matInput type ="number" placeholder="Sales Price">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity</mat-label>
+      <input formControlName="quantity" matInput type ="number" placeholder="Quantity">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+</div>
