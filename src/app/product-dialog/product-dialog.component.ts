@@ -8,8 +8,8 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
   templateUrl: './product-dialog.component.html',
   styleUrls: ['./product-dialog.component.scss']
 })
+//component for the dialog 
 export class ProductDialogComponent implements OnInit {
-
 
   productDataForm !: FormGroup;
   actionBtn: string = "Save"
@@ -17,6 +17,7 @@ export class ProductDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editData : any,
     private dialogRef: MatDialogRef<ProductDialogComponent>) { }
 
+  //initialize all the data for the form 
   ngOnInit(): void {
     this.productDataForm = this.formBuilder.group({
       id:[''],
@@ -29,7 +30,7 @@ export class ProductDialogComponent implements OnInit {
     });
     if(this.editData){
       this.actionBtn = "Update"
-   //   this.productDataForm.controls['id'].setValue(this.editData.id);
+      this.productDataForm.controls['id'].setValue(this.editData.id);
       this.productDataForm.controls['name'].setValue(this.editData.name);
       this.productDataForm.controls['desc'].setValue(this.editData.desc);
       this.productDataForm.controls['supplierId'].setValue(this.editData.supplierId);
@@ -39,37 +40,31 @@ export class ProductDialogComponent implements OnInit {
     }
   }
 
+  //add a product to our data 
   addProduct(){
     if(!this.editData){
       if(this.productDataForm.valid) {
         this.api.saveProduct(this.productDataForm.value)
-        .subscribe({
-          next: (res) =>{
+        .subscribe((res) =>{
             alert("Product added!");
             this.productDataForm.reset();
-            this.dialogRef.close('savesd');
-          },
-          error:()=>{
-            alert("Unable to add product")
+            this.dialogRef.close('Save');
           }
-        })
-      }else{
-        this.updateProduct()
+        )
       }
+    }else{
+      this.updateProduct()
     }
   }
-    updateProduct(){
-      this.api.updateProduct(this.productDataForm.value, this.editData.id)
-      .subscribe({
-      next:(res)=>{
-        this.productDataForm.reset();
-        this.dialogRef.close('update');
-      },
-      error:(err)=>{
-        alert("Error!")
-      }
+//update product using data from the form 
+  updateProduct(){
+    console.log("product updating")
+    this.api.updateProduct(this.productDataForm.value, this.editData.id)
+    .subscribe((res)=>{
+      this.productDataForm.reset();
+      this.dialogRef.close('Update');
     })
-  }
+}
   
 
 }

@@ -1,14 +1,23 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>supervisor_account</mat-icon>
-  </button>
-  <span>Grocery Inventory Management</span>
-  <span class="example-spacer"></span>
-  <a [routerLink]="['/products/']"><button mat-raised-button color="primary" >Products</button></a>
-  <button [routerLink]="['/suppliers/']" mat-raised-button color="primary" >Suppliers</button>
-  <button [routerLink]="['/customers/']" mat-raised-button color="primary" >Customers</button>
-  <button [routerLink]="['/orders/']" mat-raised-button color="primary" >Orders</button>
-</mat-toolbar>
+<div id = "main_page">
+  <mat-toolbar color="primary">
+    <button [routerLink]="['/main_page']" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>supervisor_account</mat-icon>
+    </button>
+    
+    <span>Groceries Inventory Management</span>
+    <span class="example-spacer">  </span>
+      <div class="example-button-row">
+          <a [routerLink]="['/products/']"><button mat-raised-button color="primary" class=".example-label" >Products</button></a>
+         <button [routerLink]="['/suppliers/']" mat-raised-button color="primary" class=".example-label" >Suppliers</button>
+        <button [routerLink]="['/customers/']" mat-raised-button color="primary"class=".example-label"  >Customers</button>
+        <button [routerLink]="['/orders/']" mat-raised-button color="primary" class=".example-label" >Orders</button>
 
 
-<router-outlet></router-outlet>
+    </div>
+  </mat-toolbar>
+  
+  <div class="Banner">
+    <h1>Groceries Management System</h1>
+  </div>
+  <router-outlet></router-outlet>
+

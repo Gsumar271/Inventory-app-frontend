@@ -1,0 +1,51 @@
+<div class="formContent">
+  <h1 mat-dialog-title>Add New/Edit Order</h1>
+<div mat-dialog-content>
+   <form [formGroup]="orderDataForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Order Id</mat-label>
+      <input formControlName="id"  matInput placeholder="id">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Order Type</mat-label>
+        <input formControlName="type"  matInput placeholder="type">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input formControlName="productName"  matInput placeholder="productName">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Supplier/Customer</mat-label>
+      <input formControlName="supplierOrCustomer"  matInput placeholder="supplierOrCustomer">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Quantity</mat-label>
+      <input formControlName="orderQuantity" matInput type ="number" placeholder="orderQuantity">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Item Price</mat-label>
+        <input formControlName="itemPrice"  matInput placeholder="itemPrice">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Note</mat-label>
+        <input formControlName="note"  matInput placeholder="note">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addOrder()">{{actionBtn}}</button>
+</div>
+
+
+</div>

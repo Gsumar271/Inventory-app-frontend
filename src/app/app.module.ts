@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
@@ -23,6 +23,10 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SuppliersDialogComponent } from './suppliers-dialog/suppliers-dialog.component';
+import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
+import { OrdersDialogComponent } from './orders-dialog/orders-dialog.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     CustomersComponent,
     OrdersComponent,
-    ProductDialogComponent
+    ProductDialogComponent,
+    SuppliersDialogComponent,
+    CustomersDialogComponent,
+    OrdersDialogComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

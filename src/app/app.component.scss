@@ -1,4 +1,59 @@
+#main_page{
+  background-color: darkgrey;
+}
 .example-spacer {
-    flex: 1 1 auto;
-    background-color: bisque;
+    flex: 1 1 100%;
+    background-color:darkgrey;
   }
+   .example-label{
+    display: table-cell;
+    font-size: 14px;
+    margin: 20px;
+    min-width: 140px;
+  }
+  .banner {
+    width: 100%;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #555;
+  }
+
+
+h1{
+  text-align: center;
+  font-size: 50px;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+

@@ -18,10 +18,6 @@ export class ProductsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'desc', 'supplierId', 'itemPrice', 'salesPrice','quantity', 'action'];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-
   constructor(public dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
@@ -32,7 +28,7 @@ export class ProductsComponent implements OnInit {
     this.dialog.open(ProductDialogComponent, {
       width:'35%'
     }).afterClosed().subscribe(val=>{
-      if(val==='save'){
+      if(val==='Save'){
         this.getAllProducts();
       }
     }) 
@@ -40,24 +36,18 @@ export class ProductsComponent implements OnInit {
 
   getAllProducts(){
     this.api.findAll()
-    .subscribe({
-      next:(res)=>{
+    .subscribe((res)=>{
         this.dataSource = new MatTableDataSource(<any>res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-      error:(err)=>{
-        alert("Error while fetching!")
       }
-    })
-
+    )
   }
+
   editProduct(row: any){
     this.dialog.open(ProductDialogComponent, {
       width:'35%',
       data: row
     }).afterClosed().subscribe(val=>{
-      if(val==='update'){
+      if(val==='Update'){
         this.getAllProducts();
       }
     })
@@ -67,24 +57,11 @@ export class ProductsComponent implements OnInit {
 
   deleteProduct(id:number){
     this.api.deleteProduct(id)
-      .subscribe({
-      next:(res)=>{
-        alert("Product deleted!");
+      .subscribe((res)=>{
         this.getAllProducts()
-      },
-      error:(err)=>{
-        alert("Error while deleting!")
       }
-    })
+    )
 
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
 }
